@@ -1,0 +1,22 @@
+Class Assignment:
+-------------------------------------------------------------------
+
+
+Step #1
+function [3:0] get_seqcount_nonoverlapping;
+endfunction
+
+Complete the above function in the sequence detector test bench
+
+
+Step #2
+Update the drive_dut task
+	-> get counts for both overlapping and nonoverlapping
+	-> justify by combining the results of both counts to justify the output results
+
+Step #3
+Come up with a logic to print the percentage of test that passed
+in a given simulation run. Write a function or task for realizing it
+Try to log the results into a file
+
+ 

@@ -1,0 +1,226 @@
+Half Adder
+
+English
+------------------------------------------------------------------------
+
+The module is called "halfadder" and it implements the funcionality of half adder circuit <- module
+The inputs of this module are:
+	a which is 1 bit <- input
+	b which is 1 bit <- input
+The outputs of this module are:
+	s which is 1 bit <- output
+	c which is 1 bit <- output
+
+	Functionality is defines as below:
+		LHS (output) = RHS (input)
+		s = a xor b <- assign
+		c = a and b <- assign
+
+Thus, end the description of the module "halfadder" <- endmodule
+
+Verilog Vocabulary
+------------------------------------------------------------------------
+
+module
+endmodule
+input
+output
+assign
+operators: &, |, !, +, -, ^
+
+
+Verilog Description of Half Adder
+------------------------------------------------------------------------
+
+module halfadder(
+	input a,
+	input b,
+	output s,
+	output c
+)
+	assign s = a ^ b;
+	assign c = a & b;
+
+endmodule
+
+*********************************************************************************
+
+Class exercise: describe a half subtractor in English [15 mins]
+Break: 1100 : 1115
+Class exercise: describe the half subtractor in Verilog [15 mins] resuming by 11:30
+
+*********************************************************************************
+
+
+Example #2: Gate level Two-to-One Multiplexer (2:1 MUX)
+
+Volcabulary
+------------------------------------------------------
+
+wire
+
+Description
+------------------------------------------------------
+module mux_2_1(
+
+	input in1,
+	input in2,
+	input sel,
+	output out
+)
+
+	wire out1, out2;
+	wire sel_inv;
+
+	assign out = out1 | out2;
+	assign out2 = in1 & sel_inv;
+	assign out1 = in2 & sel;
+	assign sel_inv = !sel;
+	
+
+endmodule
+
+Note: 
+------------------------------------------------------
+
+Treat this code as a circuit
+As long as the connectivity is maintained, the order doesn't matter
+All blocks are concurrent
+
+*********************************************************************************
+
+Class exercise: describe a full adder gate-level circuit [20 mins]
+
+*********************************************************************************
+
+Example #3: Functional/Behavioural level Two-to-One Multiplexer (2:1 MUX)
+
+Volcabulary
+------------------------------------------------------
+
+Operator: Conditional Operator ?:
+Operator: Relational Operators == > < <= >=
+always() -> used to describe digital functional blocks in verilog
+if.. else.. block
+
+Description #1 Behavioural
+------------------------------------------------------
+module mux_2_1(
+
+	input in1,
+	input in2,
+	input sel,
+	output out
+)
+
+	assign out = (sel == 1) ? in2 : in1;
+	
+
+endmodule
+
+Note: 
+------------------------------------------------------
+By default, input and output are wire types
+LHS of assign statement should always be a wire type
+
+Description #2 Behavioural
+------------------------------------------------------
+
+module mux_2_1(
+
+	input in1,
+	input in2,
+	input sel,
+	output reg out
+)
+
+	always(*)
+	begin
+		if(sel == 1)
+			out = in2;
+		else
+			out = in1;
+	end
+	
+
+endmodule
+
+Note: 
+------------------------------------------------------
+
+LHS of equations inside always block should be of type reg
+wire keeps the values as long as it is driven
+reg retains the value until it is changed
+
+* -> signals used in conitions, signals in RHS -> sel, in1, in2
+
+*********************************************************************************
+
+Class exercise: Write a behavioural code for full adder
+
+*********************************************************************************
+
+
+module fulladder(
+	input a, 
+	input b, 
+	input cin,
+	output sum,
+	output carry
+)
+
+	wire [1:0] temp;
+	assign temp = a + b + cin;
+	assign sum = temp[0];
+	assign carry = temp[1];
+
+endmodule
+
+Efficient description:
+--------------------------------------------
+
+module fulladder(
+	input a, 
+	input b, 
+	input cin,
+	output sum,
+	output carry
+)
+
+	assign {carry, sum} = a + b + cin;
+
+endmodule
+
+Description with always block:
+--------------------------------------------
+
+
+module fulladder(
+	input a, 
+	input b, 
+	input cin,
+	output reg sum,
+	output reg carry
+)
+
+	always@(*)
+	begin
+		{carry, sum} = a + b + cin;
+	end
+endmodule
+
+*********************************************************************************
+
+Assignment: 
+
+Describe the behaviour of 1 bit digital comparator circuit
+(Don't consider the gate level circuit. Describe at the functional level)
+
+
+
+
+
+
+
+
+

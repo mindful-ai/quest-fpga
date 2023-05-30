@@ -1,0 +1,9 @@
+Class assignment
+*********************************************************************
+
+Design a sequence detector for 1101 non-overlapping
+
+Test case: 11011101011010001101 -> 4 seqences
+
+What if you need to show the count of sequences rather than a pulse?
+How do you modify the design?

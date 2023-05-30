@@ -1,0 +1,102 @@
+Vocabulary
+----------------------------------------------
+
+multibit signals -> reg [3:0] count; -> 4 bits, MSB -> [3] LSB -> [0]
+
+concatenation of signals -> 
+reg a, b, c;
+reg [2:0] t;
+t = {a, b, c}; -> three bit concatenated signal
+
+reg [3:0] t1, t2;
+t = {t1[3:2], t2[0]}
+
+shift operators ->
+>> <<
+
+t = 4'b0010;
+t << 1 -> 0100
+t >> 1 -> 0001
+
+value representation ->
+<n>'<d/o/h/b><value>
+8'b00100101
+16'd4 -> 0000000000000100
+8'hFF
+4'o75
+
+
+constants ->
+parameter MAX = 15;
+
+counter.v
+----------------------------------------------------
+
+module counter_4bit(
+	input clock,
+	input reset,
+	input enable,
+	output reg [3:0] count,
+	output cc
+ 	);
+
+	parameter MAX = 4'b1111;
+	
+	always@(posedge clock)
+	begin
+		if(reset)
+			count <= 0;
+		else
+			count <= count + 1;
+
+	end
+
+	assign cc = (count == MAX);
+
+
+endmodule
+
+Note: Sequential circuits are only sensitive to the edge of the clock
+      Only other signal that you can write with the clock is the reset (asynchronous)
+
+*****************************************************************************************
+
+Class exercise: write a test bench for a full-adder circuit (10:45 - 11:05)
+Review 11:05 - 11:10
+Break 11:10 - 11:30
+
+module fa_tb();
+
+	reg a, b, cin;
+	wire s, cout;
+
+	fa fa_inst(
+		.a(a),
+		.b(b),
+		.cin(cin),
+		.sum(s),
+		.cout(cout)
+
+	);
+
+	initial
+	begin
+		a = 1;
+		b = 1;
+		cin = 0;
+		#100;
+		
+
+		a = 1;
+		b = 0;
+		cin = 0;
+		#100;
+
+		$stop;
+
+	end
+
+endmodule
+
+*****************************************************************************************
+

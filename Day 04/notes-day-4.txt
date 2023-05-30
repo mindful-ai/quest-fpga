@@ -1,0 +1,51 @@
+-------------------------------------------------------
+
+fulladder  -> 15 minutes 10:35 - 10:50
+comparator -> 15 minutes 10:50 - 11:05
+tea break  -> 15 minutes 11:05 - 11:20
+Resume @ 11:20
+
+review     -> 10 mins
+
+-------------------------------------------------------
+
+Modelling sequential circuit behaviour
+
+
+-------------------------------------------------------
+
+Example #1 D Flip Flop
+
+
+Vocabulary:
+
+posedge, negedge
+LHS <= RHS for sequential circuits
+
+
+Description:
+
+module dff(
+	input d,
+	input clk,
+	input rst,
+	output q
+);
+
+	always@(posedge clk)
+	begin
+		if(rst == 1)
+		begin
+			q <= 0;
+		end
+		else
+		begin
+			q <= d;
+		end
+		
+	end
+endmodule
+
+
+
+

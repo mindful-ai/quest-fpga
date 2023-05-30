@@ -1,0 +1,47 @@
+Vocabulary
+
+-------------------------------------------------------------------------------------------
+
+case .. endcase statement  ->
+
+
+case (expr)
+  <value 1>: <statements>
+  <value 2>: <statements>
+  ...
+  ...
+  default: <statements>
+endcase
+
+Example:
+
+2 bit binary to one hot encoding
+00 -> 0001
+01 -> 0010
+10 -> 0100
+11 -> 1000
+
+
+integer data type ->
+
+integer i; 
+i can be used as an integer, internally it is treated as a 32 bit register
+
+
+for loop ->
+
+for(i = 0; i <= 9; i = i + 1)
+begin
+	$display("Hello World!!");
+end
+
+displays Hello World!! 10 times
+
+-------------------------------------------------------------------------------------------
+
+Class Assignment:
+
+1. Design a 2 - digit stop watch
+2. Design a shift register which shifts every 140 us (micro seconds) given 50 MHz input clock
+
+Refer: Creating Micro Architectures.pdf shared with this file

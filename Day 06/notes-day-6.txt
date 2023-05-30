@@ -1,0 +1,63 @@
+Vocabulary
+------------------------------------------------------------------
+
+Delays ->
+
+#<number>
+#10 -> 10 ns delay
+The unit depends on the timescale that is set
+`timescale 1ns/100ps
+
+
+Waiting for events ->
+@(<signal name>)
+Wait for the next event 0->1 or 1->0 to proceed
+
+@(posedge/negedge <signal>)
+Wait for the next specified edge
+
+
+System Functions ->
+
+$display() -> prints a message on the console, like the printf() function in C
+$time -> give you the instantaneous simulation time
+$stop -> stops the simulation
+
+
+forever loop ->
+infinite loop
+
+forever 
+begin
+  #10;
+  clock = ~clock;
+end
+
+The above statement will keep inverting the clock signal every 10 ns forever
+
+repeat loop ->
+Repeats a statement block for given number of times
+
+repeat(5)
+	$display("Hello");
+
+Displays Hello 5 times on the console
+
+-------------------------------------------------------------------------------------------
+
+Guidelines for synthesizable code:
+
+1. Use only the following in your designs
+	module, endmodule
+	input, output, inout
+	wire, reg
+        assign, always@(*), always@(posedge</negedge> clock or posedge</negedge> reset)
+	if..else block, case block
+	Synthesizable module instances
+
+2. Keep your designs as simple and straight forward as possible
+
+
+-------------------------------------------------------------------------------------------
+
+Class Assignment: Write 5 more test scenarios for the shift register
