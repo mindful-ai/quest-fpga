@@ -1,0 +1,10 @@
+Class Assignment
+
+----------------------------------------------------------------------------------------------------------------
+
+
+1. Write a 4 bit binary to grey encoder in VHDL and check the circuit in Vivado
+2. Write a 4 bit parity generator circuit
+	1101  -> 1 1101
+	1100  -> 0 1100
+
