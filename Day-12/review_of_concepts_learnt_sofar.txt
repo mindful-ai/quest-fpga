@@ -1,0 +1,55 @@
+Review of previous classes:
+
+1. Digital domain
+2. Combination Circuits
+3. Sequential Circuits
+4. State Machines
+
+5. Verilog
+	module.. end module
+	input, output, inout
+	wire, reg, integers -> [M:N]
+	assign, LHS = RHS
+	always@(*), LHS = RHS (blocking operator)
+	always@(posedge clock), LHS <= RHS (non-blocking operator)
+	if..else, case..endcase
+	Component instantiation
+	Test benches
+	initial block
+	#N, @(event), ->event, event e, wait
+	forever, for, while loops
+	$display, $stop, $random, $monitor
+	$readmemh, $readmemb
+	$fopen, $fclose, $fscanf, $fdisplay, $fmonitor
+	VCD -> Save simulation waveform data
+
+	Combination Circuits
+	Sequential Circuits
+ 	State Machines
+	Test benches and simulation
+
+6. Introduction to VHDL
+
+	entity .. architecture pair
+	bit, std_logic
+	signals
+	continuous signal assignments, LHS <= RHS
+	process blocks - combinational, sequential, LHS <= RHS
+	variables LHS := RHS
+	clock detection in VHDL
+	wait, wait until, wait for
+
+Class Exercise:
+--------------------------------------------------------
+
+For the counter_4bit design:
+
+add the following and upgrade the code to meet specifications:
+
+1. enable input signal
+2. updown input signal
+3. cc output signal
+
+--------------------------------------------------------
+
+
