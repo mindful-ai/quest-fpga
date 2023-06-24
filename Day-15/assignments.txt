@@ -1,0 +1,35 @@
+
+
+Class Exercise:
+
+1. Note down the pins of the buttons and LEDs on the BSYS3 board
+2. Create IO constraints in Vivado
+3. Generate the bit stream
+4. Analyse the reports
+
+--------------------------------------------------------
+
+Graded Assignments:
+
+Assignment #1:
+
+Implement a 4 bit counter with enable and updown inputs, pdata and pload inputs as well
+on the following board:
+
+
+All boards are from Digilent
+
+Arty A7             | Amal      | Harsha    | Damodharan
+Nexys A7            | Anand     | Mahesh
+Arty S7             | Aneesha   | Nijith
+Zybo Z7             | Anju      | Shamiya
+Arty Z7             | George    | Zainul
+Genesys 2           | Abhilash  | Avadhoot
+
+Assignment #2:
+
+Implement the led-driver project on KC705 board after
+carefully studying the board details
+
+Try to program the board by connecting to your PC
+using the JTAG cable available with the kit
