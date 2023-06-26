@@ -1,0 +1,13 @@
+ID = 1.10 | A =   5 | B =   5 | OP = 0 | Output =  10 | PASS
+ID = 2.10 | A = 200 | B = 200 | OP = 0 | Output = 144 | PASS
+ID = 2.20 | A =   5 | B =   3 | OP = 1 | Output =   2 | PASS
+ID = 2.30 | A =   3 | B =   5 | OP = 1 | Output = 254 | PASS
+ID = 2.30 | A =   5 | B =   5 | OP = 1 | Output =   0 | PASS
+
+Number of Tests Identified = 10
+Number of Tests = 5
+Number of Passes = 3
+Number of Fails = 2
+
+Overall Functional Coverage 50%
+Pass percentage 60%
