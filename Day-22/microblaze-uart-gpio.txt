@@ -1,0 +1,63 @@
+1. Add microblaze subsystem
+	Double click to see the different settings
+2. Clocking wizaard to provide 100Mhz frequency
+	Remove reset and locked
+	Connect the blocks manually
+	Make the port external 
+	Give the name as the name of the clock in the XDC file
+3. Add the UART IP
+	Make the tx and rx port external and connect the pins
+	Design automation: just choose 64 KB and leave the rest to default
+	Again run design automation: to make rest of the connections
+4. Add GPIO
+	Configure for 1 port and make external
+	Do connection automation
+5. Observe the reset, it's active low reset
+	Add this to constraint file for a button
+6. Validate the design
+	Use the tick in the tool bar
+7. Right click on the design and create a HDL wrapper
+	Need to do this before synthesis
+8. Generate bit stream
+9. Export hardware
+	Include the bitstream
+10. Tools -> Vitis IDE
+	Create a new application
+	select the xsa file by browsing -> it will be generated from the previous steps
+	Create a project name
+	Select a template -> Hello World!
+	Observe the helloworld.c
+11. Connect the board
+	Build the project
+	Vitis Serial terminal -> create a new connection
+	Debug -> Debug Configuration -> Single Application Debug -> New Configuration
+	Choose appropriate project
+	Debug
+12. Observe the terminal
+	Code will be uploaded
+	Go to the serial console -> Play
+13. LED blinking
+	add:
+		#include "xparameters.h"
+		#include "xgpio.h"
+		#include "xil_types.h"
+		#include "sleep.h"
+		int main(){
+			
+			XGpio Gpio;
+			XGpio_Initialize(&Gpio, 1, 1);
+			volatile u32 data = 0;
+
+			while(1){
+				XGpio_DiscreteWrite(&Gpio, 1, 1);
+				usleep(250000);
+				XGpio_DiscreteClear(&Gpio, 1, 1);
+				data = XGpio_DiscreteRead(&Gpio, 2);
+				usleep(25000);
+			}
+			
+			return 0;
+ 		}
+
+-----------------------------------------------------------------------------
+s
